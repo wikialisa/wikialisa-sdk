@@ -33,3 +33,71 @@ macro_rules! msg {
         println!("[wikialisa-program] {}", format!($($arg)*));
     };
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use std::cell::RefCell;
+    use std::rc::Rc;
+
+    #[test]
+    fn test_pubkey_operations() {
+        let pk = Pubkey::new_from_array([42u8; 32]);
+        assert_eq!(pk.to_bytes()[0], 42);
+        assert_eq!(pk.as_ref().len(), 32);
+        let pk_str = format!("{}", pk);
+        assert!(!pk_str.is_empty());
+    }
+
+    #[test]
+    fn test_instruction_and_account_meta() {
+        let program_id = Pubkey::new_from_array([1u8; 32]);
+        let user_pk = Pubkey::new_from_array([2u8; 32]);
+        let meta_signer = AccountMeta::new(user_pk, true);
+        let meta_readonly = AccountMeta::new_readonly(program_id, false);
+
+        assert!(meta_signer.is_signer);
+        assert!(meta_signer.is_writable);
+        assert!(!meta_readonly.is_signer);
+        assert!(!meta_readonly.is_writable);
+
+        let ix = Instruction::new_with_borsh(
+            program_id,
+            &vec![10u8, 20, 30],
+            vec![meta_signer, meta_readonly],
+        ).expect("Mã hóa instruction Borsh thành công");
+
+        assert_eq!(ix.program_id, program_id);
+        assert_eq!(ix.accounts.len(), 2);
+    }
+
+    #[test]
+    fn test_account_info_creation() {
+        let key = Pubkey::new_from_array([3u8; 32]);
+        let owner = Pubkey::new_from_array([4u8; 32]);
+        let mut lamports_val = 500u64;
+        let mut data_buf = vec![0u8; 64];
+
+        let account = AccountInfo::new(
+            &key,
+            true,
+            true,
+            Rc::new(RefCell::new(&mut lamports_val)),
+            Rc::new(RefCell::new(&mut data_buf)),
+            &owner,
+            false,
+        );
+
+        assert_eq!(*account.key, key);
+        assert_eq!(*account.owner, owner);
+        assert!(account.is_signer);
+        assert!(account.is_writable);
+    }
+
+    #[test]
+    fn test_program_errors() {
+        let err = ProgramError::InsufficientFunds;
+        let err_msg = format!("{}", err);
+        assert!(err_msg.contains("Số dư tài khoản không đủ"));
+    }
+}
