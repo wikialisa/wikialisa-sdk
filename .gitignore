@@ -2,6 +2,7 @@ target/
 farf/
 
 **/*.rs.bk
+*.bak
 .cargo
 /config/
 .cache

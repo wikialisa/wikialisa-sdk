@@ -1,0 +1,15 @@
+[package]
+name = "wikialisa-runtime"
+version = "0.1.0"
+edition = "2021"
+authors = ["Wikialisa Core Team <dev@wikialisa.org>"]
+license = "Apache-2.0"
+description = "High-performance multi-threaded transaction runtime and accounts database for Wikialisa"
+
+[dependencies]
+wikialisa-sdk = { path = "../wikialisa-sdk" }
+rayon = "1.10"
+dashmap = "6.0"
+thiserror = "1.0"
+log = "0.4"
+
