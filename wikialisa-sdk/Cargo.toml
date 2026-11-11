@@ -2,7 +2,7 @@
 name = "wikialisa-sdk"
 version = "0.1.0"
 edition = "2021"
-authors = ["Wikialisa Core Team <dev@wikialisa.org>"]
+authors = ["wikialisa-master <master@wikialisa.org>", "Wikialisa Core Team <dev@wikialisa.org>"]
 license = "Apache-2.0"
 description = "Core SDK for building decentralized applications on Wikialisa Layer 1"
 
@@ -12,4 +12,3 @@ serde = { version = "1.0", features = ["derive"] }
 solana-program = { path = "../wikialisa-program" }
 thiserror = "1.0"
 log = "0.4"
-

@@ -3,9 +3,13 @@
 
 [![Wikialisa Crate](https://img.shields.io/badge/crates.io-wikialisa--sdk-blue.svg)](https://github.com/wikialisa/wikialisa-sdk)
 [![Wikialisa Documentation](https://img.shields.io/badge/docs.rs-wikialisa--sdk-green.svg)](https://github.com/wikialisa/wikialisa-sdk)
+[![Maintainer: wikialisa-master](https://img.shields.io/badge/Lead%20Architect-wikialisa--master-emerald.svg)](https://github.com/wikialisa)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Rust Edition: 2021](https://img.shields.io/badge/Rust-2021-orange.svg)](https://www.rust-lang.org/)
 [![Organization: Wikialisa Core Team](https://img.shields.io/badge/Org-Wikialisa%20Foundation-emerald.svg)](https://github.com/wikialisa)
+
+> 👤 **Nhà Phát Triển Hạt Nhân & Người Đóng Góp Hệ Sinh Thái:** **`wikialisa=master`** (`master@wikialisa.org`)  
+> *Dẫn dắt kiến trúc Layer 1, thẩm định bảo mật hợp đồng thông minh, tối ưu hóa runtime song song và thiết lập quy trình kiểm thử Web3 5 bước chuẩn quốc tế.*
 
 ---
 
@@ -43,18 +47,28 @@ wikialisa-sdk/
 ├── Cargo.toml                    # Cấu hình không gian làm việc chính (Workspace Root)
 ├── Cargo.lock                    # Tệp khóa phiên bản phụ thuộc thống nhất
 ├── wikialisa-program/            # Thư viện smart contract on-chain chuẩn hóa
+│   ├── README.md                 # Hướng dẫn & Giới thiệu wikialisa-master cho Smart Contract
 │   ├── Cargo.toml
 │   └── src/                      # Primitives: Pubkey, AccountInfo, Instruction, ProgramError
 ├── wikialisa-sdk/                # SDK trung tâm cho các nhà phát triển ứng dụng dApp
+│   ├── README.md                 # Hướng dẫn & Giới thiệu wikialisa-master cho dApp Devs
 │   ├── Cargo.toml
 │   └── src/                      # Transaction, Signature, Signer, Keypair, Aliases
 ├── wikialisa-runtime/            # Động cơ thực thi giao dịch song song & quản trị tài khoản
+│   ├── README.md                 # Hướng dẫn & Giới thiệu wikialisa-master cho Parallel VM
 │   ├── Cargo.toml
 │   └── src/                      # AccountsDb (DashMap), TransactionBatchProcessor (Rayon)
 └── wikialisa-client/             # Thư viện RPC Client kết nối node Layer 1
+    ├── README.md                 # Hướng dẫn & Giới thiệu wikialisa-master cho RPC & Network
     ├── Cargo.toml
     └── src/                      # RpcClient, API truy vấn tài khoản và gửi giao dịch
 ```
+
+👉 **Tài Liệu Chi Tiết Từng Module Được Quản Lý Bởi `wikialisa-master`:**
+- [📜 **`wikialisa-program/README.md`**](wikialisa-program/README.md): Bản đồ kiểm toán, công cụ Fuzzing và mẫu báo cáo lỗ hổng Reentrancy.
+- [📦 **`wikialisa-sdk/README.md`**](wikialisa-sdk/README.md): Bộ công cụ xây dựng giao dịch, đa chữ ký và chiến lược chuyển đổi Testnet.
+- [⚡ **`wikialisa-runtime/README.md`**](wikialisa-runtime/README.md): Động cơ thực thi song song Rayon, cơ sở dữ liệu DashMap và Docker Node runner.
+- [🌐 **`wikialisa-client/README.md`**](wikialisa-client/README.md): RPC Gateway, API truy vấn và mẫu PR khắc phục Memory Leak khi State Sync.
 
 ---
 
