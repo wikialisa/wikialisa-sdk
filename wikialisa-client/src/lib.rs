@@ -54,3 +54,35 @@ impl RpcClient {
         Ok(Account::new(1_000_000_000, 0, &Pubkey::default()))
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_rpc_client_creation() {
+        let client = RpcClient::new("https://api.testnet.wikialisa.org".to_string());
+        assert_eq!(client.url, "https://api.testnet.wikialisa.org");
+    }
+
+    #[test]
+    fn test_rpc_get_balance_and_account() {
+        let client = RpcClient::new("https://api.testnet.wikialisa.org".to_string());
+        let pk = Pubkey::new_from_array([10u8; 32]);
+        
+        let balance = client.get_balance(&pk).expect("Lấy số dư tài khoản thành công");
+        assert_eq!(balance, 1_000_000_000);
+
+        let account = client.get_account(&pk).expect("Lấy thông tin tài khoản thành công");
+        assert_eq!(account.lamports, 1_000_000_000);
+        assert!(!account.executable);
+    }
+
+    #[test]
+    fn test_rpc_send_transaction() {
+        let client = RpcClient::new("https://api.testnet.wikialisa.org".to_string());
+        let tx = Transaction::new_with_payer(&[], None);
+        let sig = client.send_transaction(&tx).expect("Phát tán giao dịch thành công");
+        assert_eq!(sig.as_ref().len(), 64);
+    }
+}
