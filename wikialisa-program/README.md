@@ -131,3 +131,4 @@ function testReentrancyExploit() public {
 | **Tuần 1** | `wikialisa-program` | Tối ưu hóa Borsh serialization + 3 PR unit test | Merged (#1024) | Score: 35.4 (Verified) |
 | **Tuần 2** | `wikialisa-bridge` | Gửi 1 bản vá bảo mật chống Reentrancy (Critical Finding) | Under Review (Immunefi) | Đã hoàn thành KYC testnet |
 | **Tuần 3** | `wikialisa-sdk` | Tích hợp Fluent Transaction Builder & Multi-Signer | Merged (#1035) | Active Contributor Badge |
+

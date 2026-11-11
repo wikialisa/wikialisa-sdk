@@ -113,3 +113,4 @@ services:
 | **Tuần 1** | `wikialisa-runtime` | Tích hợp Rayon Parallel Batch Processor + DashMap | Merged (#1025) | Uptime Validator: 99.98% |
 | **Tuần 2** | `wikialisa-runtime` | Tối ưu hóa thuật toán lập lịch không xung đột | Merged (#1031) | Điểm Gitcoin Passport: 38.2 |
 | **Tuần 3** | `wikialisa-node` | Chạy Node Validator Stress Test tại Testnet Phase 2 | Đang vận hành | Đạt tiêu chuẩn nhận Genesis Airdrop |
+

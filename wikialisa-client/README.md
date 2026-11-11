@@ -106,3 +106,4 @@ services:
 | **Tuần 1** | `wikialisa-client` | Xây dựng RpcClient cơ bản + Unit tests | Merged (#1026) | Score: 36.1 (Verified) |
 | **Tuần 2** | `wikialisa-client` | Sửa lỗi memory leak trong State Sync Timeout | Merged (#1032) | Đã hoàn thành KYC testnet |
 | **Tuần 3** | `wikialisa-explorer`| Kết nối RPC Gateway hiển thị khối thời gian thực | Active | Nhận huy hiệu Core Contributor |
+

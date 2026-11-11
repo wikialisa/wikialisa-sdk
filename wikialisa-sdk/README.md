@@ -105,3 +105,4 @@ services:
 | **Tuần 1** | `wikialisa-sdk` | Xây dựng Transaction & Multi-signer primitives | Merged (#1027) | Score: 37.8 (Verified) |
 | **Tuần 2** | `wikialisa-sdk` | Phát hành TransactionBuilder + Unit Tests | Merged (#1033) | Hoàn thành định danh Sybil |
 | **Tuần 3** | `wikialisa-wallet`| Tích hợp SDK vào tiện ích ví mở rộng Web3 | In Progress | Đủ điều kiện nhận Developer Airdrop |
+
